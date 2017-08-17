@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:dialogTitle="sorted by"
+        android:key="sortedby"
+        android:summary="movies will sort by ( favourite - popular - top-rated )"
+        android:title="sorted by" />
+</PreferenceScreen>
