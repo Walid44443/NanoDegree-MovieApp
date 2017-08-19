@@ -26,19 +26,19 @@ import com.mal.walid.moviewalid.model.MovieObj;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-;
-
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     public static Realm realm;
     public static int fragNum;
     static View mView;
     static View view;
     static Context mContext;
+
     static FragmentManager fragmentManager;
     private static Bundle savedInstanceState;
 
     public static void CheckFragment(int postion) {
         SharedPreferences getData = PreferenceManager.getDefaultSharedPreferences(mContext);
+
         final String sortedBy = getData.getString("sortedby", "popular");
         Bundle bundle = new Bundle();
         bundle.putSerializable("Movie", MainActivityFragment.MovieArray.get(postion));
@@ -58,9 +58,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.savedInstanceState = savedInstanceState;
+        MainActivity.savedInstanceState = savedInstanceState;
+        overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
 
-        getSupportLoaderManager().initLoader(1, this.savedInstanceState, this);
+        getSupportLoaderManager().initLoader(1, MainActivity.savedInstanceState, this);
 
         setContentView(R.layout.activity_main);
         fragmentManager = getFragmentManager();

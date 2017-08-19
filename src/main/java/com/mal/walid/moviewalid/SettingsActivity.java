@@ -20,6 +20,8 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
+
         try {
             addPreferencesFromResource(R.xml.sortedby);
         } catch (Exception e) {

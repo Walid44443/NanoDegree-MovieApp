@@ -23,10 +23,11 @@ public class ReviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
+        overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
         Bundle bundle = getIntent().getExtras();
         int MovieID = bundle.getInt("MovieID");
         JsonParsing jsonParsing = new JsonParsing(getApplicationContext(), findViewById(R.id.RRoot));
-        jsonParsing.updateReviewData(MovieID);
+        JsonParsing.updateReviewData(MovieID);
         ListView listView = (ListView) findViewById(R.id.reviews);
         adapter = new ReviewArrayAdapter(this, R.layout.movie_layout, ReviewList);
         listView.setAdapter(adapter);

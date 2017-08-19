@@ -29,6 +29,7 @@ public class MovieDetailes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detailes);
+        overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
 
         DetailesFragment df = new DetailesFragment();
         FragmentManager fragmentManager = getFragmentManager();

@@ -24,12 +24,13 @@ public class TraillersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.abc_slide_in_bottom, R.anim.abc_slide_out_top);
         Bundle bundle = getIntent().getExtras();
         int MovieID = bundle.getInt("MovieID");
         setContentView(R.layout.activity_traillers);
         BoxOfficeMovieResponse boxOfficeMovieResponse = new BoxOfficeMovieResponse();
         JsonParsing jsonParsing = new JsonParsing(getApplicationContext(), findViewById(R.id.TRoot));
-        jsonParsing.updateTraillerData(MovieID);
+        JsonParsing.updateTraillerData(MovieID);
         ListView listView = (ListView) findViewById(R.id.traillers);
         adapter = new TraillerArrayAdapter(getApplicationContext(), R.layout.movie_layout, TraillerList);
         listView.setAdapter(adapter);
